@@ -37,6 +37,17 @@ const pAequorFactory = (num, baseArray) => {
       }
       let percentage = (count / compArray.length) * 100;
       console.log(`Specimen #1 and specimen #2 have ${percentage.toFixed(0)}% DNA in common.`)
+    },
+    //if dna array contains > 60% C & G bases
+    willLikelySurvive() {
+      let count = 0;
+      for (let i = 0; i < baseArray.length; i++) {
+        if (baseArray[i] === 'G' || baseArray[i] === 'C') {
+          count++;
+        }
+      }
+      let percentage = (count / baseArray.length) * 100;
+      return percentage >= 60 ? true : false;
     }
   }
 }
