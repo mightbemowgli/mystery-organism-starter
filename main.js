@@ -51,7 +51,18 @@ const pAequorFactory = (num, baseArray) => {
     }
   }
 }
-  
+
+const sample = [];
+let sampleCount = 0;
+while (sample.length < 30) {
+  let spec = pAequorFactory(sampleCount, mockUpStrand());
+  if (spec.willLikelySurvive()) {
+    sample.push[spec];
+    sampleCount++;
+  }
+}
+
+console.log(sample);
 
 
 
