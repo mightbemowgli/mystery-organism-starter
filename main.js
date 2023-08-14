@@ -19,19 +19,19 @@ const pAequorFactory = (num, baseArray) => {
     dna: baseArray,
     //randomly select a base from .dna and change it
     mutate() {
-      let newBase = baseArray[Math.floor(Math.random() * baseArray.length)];
-      let index = baseArray.indexOf(newBase);
+      let newBase = this.dna[Math.floor(Math.random() * this.dna.length)];
+      let index = this.dna.indexOf(newBase);
       let randBase = returnRandBase();
 
       if (newBase !== randBase) {
-        baseArray.splice(index, 1, randBase);
+        this.dna.splice(index, 1, randBase);
       }
     },
     //compare base sequences and return percentage of similarities
     compareDNA(compArray) {
       let count = 0;
       for (let i = 0; i < compArray.dna.length; i++) {
-        if (compArray.dna[i] === baseArray[i]) {
+        if (compArray.dna[i] === this.dna[i]) {
           count++;
         }
       }
@@ -41,12 +41,12 @@ const pAequorFactory = (num, baseArray) => {
     //if dna array contains > 60% C & G bases
     willLikelySurvive() {
       let count = 0;
-      for (let i = 0; i < baseArray.length; i++) {
-        if (baseArray[i] === 'G' || baseArray[i] === 'C') {
+      for (let i = 0; i < this.dna.length; i++) {
+        if (this.dna[i] === 'G' || this.dna[i] === 'C') {
           count++;
         }
       }
-      let percentage = (count / baseArray.length) * 100;
+      let percentage = (count / this.dna.length) * 100;
       return percentage >= 60 ? true : false;
     }
   }
