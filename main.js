@@ -30,13 +30,13 @@ const pAequorFactory = (num, baseArray) => {
     //compare base sequences and return percentage of similarities
     compareDNA(compArray) {
       let count = 0;
-      for (let i = 0; i < compArray.length; i++) {
-        if (compArray[i] === baseArray[i]) {
+      for (let i = 0; i < compArray.dna.length; i++) {
+        if (compArray.dna[i] === baseArray[i]) {
           count++;
         }
       }
-      let percentage = (count / compArray.length) * 100;
-      console.log(`Specimen #1 and specimen #2 have ${percentage.toFixed(0)}% DNA in common.`)
+      let percentage = (count / compArray.dna.length) * 100;
+      console.log(`Specimen #${this.specimenNum} and Specimen #${compArray.specimenNum} have ${percentage.toFixed(0)}% DNA in common.`)
     },
     //if dna array contains > 60% C & G bases
     willLikelySurvive() {
