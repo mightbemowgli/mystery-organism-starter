@@ -26,6 +26,17 @@ const pAequorFactory = (num, baseArray) => {
       if (newBase !== randBase) {
         baseArray.splice(index, 1, randBase);
       }
+    },
+    //compare base sequences and return percentage of similarities
+    compareDNA(compArray) {
+      let count = 0;
+      for (let i = 0; i < compArray.length; i++) {
+        if (compArray[i] === baseArray[i]) {
+          count++;
+        }
+      }
+      let percentage = (count / compArray.length) * 100;
+      console.log(`Specimen #1 and specimen #2 have ${percentage.toFixed(0)}% DNA in common.`)
     }
   }
 }
